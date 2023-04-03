@@ -1,0 +1,109 @@
+﻿@model IEnumerable<PROYECTO_E_COMERCE.Models.Item>
+@using PROYECTO_E_COMERCE.Models
+@{
+    ViewBag.Title = "Canasta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Start Cart  -->
+<div class="cart-box-main">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="table-main table-responsive">
+                    <table class="table" style="text-align: center">
+                        <thead>
+                            <tr style="text-transform: uppercase">
+                                <th>
+                                    @Html.DisplayNameFor(model => model.idproducto)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.nombreproducto)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.medida)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.precio)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.cantidad)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.monto)
+                                </th>
+                                <th>
+
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @if (Session["carrito"] != null)
+                            {
+                                foreach (var item in (Session["carrito"] as List<Item>))
+                                {
+                            <tr>
+                                <td class="thumbnail-img">
+                                    <a href="#">
+                                        <img src="@Url.Content(string.Format("~/images/img{0}.jpg",item.idproducto))" class="img-fluid" alt="" />
+
+                                    </a>
+                                </td>
+                                <td class="name-pr">
+                                    <a href="#">
+                                        @Html.DisplayFor(modelItem => item.nombreproducto)
+                                    </a>
+                                </td>
+
+                                <td class="name-pr">
+                                    <a href="#">
+                                        @Html.DisplayFor(modelItem => item.medida)
+                                    </a>
+                                </td>
+                                <td class="price-pr">
+                                    @Html.DisplayFor(modelItem => item.precio)
+                                </td>
+                                <td class="quantity-box">
+                                    <input type="number" size="4" value="@Html.DisplayFor(modelItem => item.cantidad)" min="0" step="1" class="c-input-text qty text">
+                                </td>
+                                <td class="total-pr">
+                                    <p>@Html.DisplayFor(modelItem => item.monto)</p>
+                                </td>
+                                <td class="remove-pr">
+                                    <a href="#">
+                                        @Html.ActionLink("Quitar", "Eliminar", new { id = item.idproducto })
+                                    </a>
+                                </td>
+                            </tr>
+                                }
+                                <tr>
+                                    <td colspan="7" style="text-align:right"><b>MONTO TOTAL A PAGAR = @Model.Sum(m => m.monto)</b></td>
+                                </tr>
+                            }
+
+
+                        </tbody>
+                        </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-5">
+
+            <div class="col-lg-6 col-sm-6">
+                <div class="update-box">
+                    <input value="Update Cart" type="submit">
+                </div>
+            </div>
+        </div>
+
+        <div class="row my-5">
+            <div class="col-12 d-flex shopping-box">
+            <a href="~/ECommerce/Comprar" class="ml-auto btn hvr-hover">Comprar</a> 
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- End Cart -->

@@ -1,0 +1,60 @@
+﻿@model PROYECTO_E_COMERCE.Models.Cliente
+@using PROYECTO_E_COMERCE.Models
+@{
+    ViewBag.Title = "Comprar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<div>
+
+    <dl class="dl-horizontal" style="border: solid 1px;
+margin-left: 35%;
+width: 200px;
+border-radius: 5%;
+text-align: center;">
+        <h2 style="text-align:center">DETALLES DE COMPRA</h2>
+        <dt>
+            @Html.DisplayNameFor(model => model.idcliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.idcliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombrecia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombrecia)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.direccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.direccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.telefono)
+        </dd>
+
+    </dl>
+</div>
+<div>
+    <div>
+        @Html.Partial("_partialCarrito", ViewBag.carrito as List<Item>)
+    </div>
+    <p>
+        @Html.ActionLink("Generar Pedido", "Pedido", null, new { @class = "btn btn-default" }) |
+        @Html.ActionLink("Retornar", "Index", null, new { @class = "btn btn-default" })
+    </p>
+</div>

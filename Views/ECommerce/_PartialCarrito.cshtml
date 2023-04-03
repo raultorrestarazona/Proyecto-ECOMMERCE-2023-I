@@ -1,0 +1,60 @@
+﻿@model IEnumerable<PROYECTO_E_COMERCE.Models.Item>
+
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.idproducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nombreproducto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.medida)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cantidad)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.monto)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.idproducto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombreproducto)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcion)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.medida)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.precio)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.cantidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.monto)
+                </td>
+            </tr>
+        }
+        <tr>
+            <td colspan="5" style="text-align:right">Total:</td>
+            <td>@Model.Sum(m => m.monto) </td>
+        </tr>
+    </table>

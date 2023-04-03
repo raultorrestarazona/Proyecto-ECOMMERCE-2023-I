@@ -1,0 +1,72 @@
+﻿@model PROYECTO_E_COMERCE.Models.Cliente
+
+@{
+    ViewBag.Title = "Registro";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <link rel="stylesheet" href="~/Content/miestilo.css">
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal form" >
+        <h2 style="text-align:center"><b>REGISTRO CLIENTE</b></h2>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">            
+                @Html.Label("NOMBRE", htmlAttributes: new { @class = "control-label col-md-2 formTex" })
+            
+                @Html.EditorFor(model => model.nombrecia, new { htmlAttributes = new { @class = "form-control formCaja" } })
+                @Html.ValidationMessageFor(model => model.nombrecia, "", new { @class = "text-danger" })
+            
+        </div>
+
+        <div class="form-group">
+            @Html.Label("APELLIDO", htmlAttributes: new { @class = "control-label col-md-2 formTex" })
+            
+                @Html.EditorFor(model => model.apellido, new { htmlAttributes = new { @class = "form-control formCaja" } })
+                @Html.ValidationMessageFor(model => model.apellido, "", new { @class = "text-danger" })
+            
+        </div>
+
+        <div class="form-group">
+            @Html.Label("DIRECCION", htmlAttributes: new { @class = "control-label col-md-2 formTex" })
+          
+                @Html.EditorFor(model => model.direccion, new { htmlAttributes = new { @class = "form-control formCaja" } })
+                @Html.ValidationMessageFor(model => model.direccion, "", new { @class = "text-danger" })
+            
+        </div>
+
+        <div class="form-group">
+            @Html.Label("TELEFONO", htmlAttributes: new { @class = "control-label col-md-2 formTex" })
+            
+                @Html.EditorFor(model => model.telefono, new { htmlAttributes = new { @class = "form-control formCaja" } })
+                @Html.ValidationMessageFor(model => model.telefono, "", new { @class = "text-danger" })
+            
+        </div>
+        <div class="form-group">
+            @Html.Label("USUARIO", htmlAttributes: new { @class = "control-label col-md-2 formTex" })
+            
+                @Html.TextBox("usuario","",new{ @class = "formCaja" });
+            
+        </div>
+        <div class="form-group">
+            @Html.Label("CONTRASEÑA", htmlAttributes:new { @class = "formTex" })
+            
+                @Html.TextBox("contraseña","",new{ @class = "formCaja" });
+            
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default formBtn" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @ViewBag.salida
+</div>

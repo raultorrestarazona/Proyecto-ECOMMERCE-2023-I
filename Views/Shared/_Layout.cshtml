@@ -1,0 +1,377 @@
+﻿@using PROYECTO_E_COMERCE.Models
+<!DOCTYPE html>
+<html lang="en">
+<!-- Basic -->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Site Metas -->
+    <title>GreenPlant - Ecommerce</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Site Icons -->
+    <link rel="shortcut icon" href="~/images/GreenPlantLogo.jpg" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+
+    <!-- Site CSS -->
+    <link rel="stylesheet" href="~/Content/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="~/Content/responsive.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="~/Content/custom.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.~/Scripts/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+    <!-- Start Main Top -->
+    <div class="main-top">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="our-link">
+                        <ul>
+                            <li><a href="#"><i class="fas fa-headset"></i>+51 900 800 100</a></li>
+                        </ul>
+                    </div>
+                    <div class="share-bar">
+                        <a class="btn hvr-hover" href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                        <a class="btn hvr-hover" href="#"><i class="fab fa-google-plus" aria-hidden="true"></i></a>
+                        <a class="btn hvr-hover" href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a>
+                        <a class="btn hvr-hover" href="#"><i class="fab fa-pinterest-p" aria-hidden="true"></i></a>
+                        <a class="btn hvr-hover" href="#"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                    <div class="login-box" style="width:auto">
+                        <div class="our-link">
+                        </div>
+                        <div class="text-slid-box">
+                            <div id="offer-box" class="carouselTicker">
+                                <ul class="offer-box">
+                                    <li>
+                                        <i class="fab fa-opencart"></i> 60% Descuento compra completa
+                                    </li>
+                                    <li>
+                                        <i class="fab fa-opencart"></i> 60% Descuento en Plantas
+                                    </li>
+                                    <li>
+                                        <i class="fab fa-opencart"></i> Descuento 60%! Compra Plantas
+                                    </li>
+                                    <li>
+                                        <i class="fab fa-opencart"></i> Descuento 60%! Compra Ahora
+                                    </li>
+                                    <li>
+                                        <i class="fab fa-opencart"></i> Descuento 60%! Compra Plantas
+                                    </li>
+                                    <li>
+                                        <i class="fab fa-opencart"></i> 60% Descuento en Plantas
+                                    </li>
+                                    <li>
+                                        <i class="fab fa-opencart"></i> 20% Descuento compra completa
+                                    </li>
+                                    <li>
+                                        <i class="fab fa-opencart"></i> Descuento 60%! Compra Ahora
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+            <!-- End Main Top -->
+            <!-- Start Main Top -->
+            <header class="main-header">
+                <!-- Start Navigation -->
+                <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+                    <div class="container">
+                        <!-- Start Header Navigation -->
+                        <div class="navbar-header">
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                            <a class="navbar-brand" href="~/Negocio/Index"><img src="~/images/GreenPlantMejorado.png" class="logo" alt=""></a>
+                        </div>
+                        <!-- End Header Navigation -->
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse" id="navbar-menu">
+                            <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                                <li class="nav-item">
+                                    @Html.ActionLink("Home", "Index", "Negocio", new { }, new { @class = "nav-link" })
+                                </li>
+
+                                <li >
+                                    @Html.ActionLink("Tienda", "Tienda", "ECommerce", new { }, new { @class = "nav-link" })
+
+                                </li>
+
+                                <li class="nav-item"><a class="nav-link" href="contact-us.html">CONTACTANOS</a></li>
+                                @if (Session["usuario"] == null)
+                                {
+                                    <li class="dropdown">
+                                        @Html.ActionLink("Inicio de Sesion", "Login", "ECommerce", new { }, new { @class = "nav-link dropdown-toggle arrow" })
+                                        <ul class="dropdown-menu">
+                                            <li><a href="~/ECommerce/Registro"><i class="fas fa-registered" style="color:#2297a0"> REGISTRARSE</i> </a></li>
+                                        </ul>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="dropdown">
+                                        <a class="nav-link dropdown-toggle arrow" href="#"><i class="fas fa-user-alt" style="color:#2297a0"></i> @Session["usuario"]</a>
+                                        <ul class="dropdown-menu" style="color:red">
+                                            <li><a href="~/ECommerce/Carrito"><i class="fas fa-cart-arrow-down" style="color:#2297a0"> VER CARRITO</i></a></li>
+                                            <li><a href="~/ECommerce/Cerrar"><i class="fas fa-power-off" style="color:red"> SALIR</i></a></li>
+                                        </ul>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Start Atribute Navigation -->
+
+
+                        <div class="attr-nav">
+                            <ul>
+                                <li class="side-menu">
+                                    <a href="#">
+                                        <i class="fas fa-cart-arrow-down" style="color:#2297a0"></i>
+                                        @if (Session["carrito"] != null)
+                                        {
+                                            int cant = 0;
+                                            foreach (var item in (Session["carrito"] as List<Item>))
+                                            {
+                                                cant = cant + 1;
+                                            }
+                                            <span class="badge">@cant</span>
+
+                                        }
+                                        <p><b>Mi Carrito</b></p>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- End Atribute Navigation -->
+                    </div>
+                    <!-- Start Side Menu -->
+
+
+                    <div class="side">
+                        <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+                        <ul>
+                            <li class="cart-box">
+                                <ul class="cart-list">
+                                    @if (Session["carrito"] != null)
+                                    {
+                                        foreach (var item in (Session["carrito"] as List<Item>))
+                                        {
+                                            <li>
+                                                <a href="#" class="photo">
+                                                    <img src="@Url.Content(string.Format("~/images/img{0}.jpg",item.idproducto))" class="cart-thumb" alt="" />
+                                                </a>
+                                                <h6><a href="#">@Html.DisplayFor(modelItem => item.nombreproducto) </a></h6>
+                                                <p>@Html.DisplayFor(modelItem => item.cantidad)x - <span class="price">@Html.DisplayFor(modelItem => item.precio)</span></p>
+                                            </li>
+
+
+
+                                        }
+                                        decimal cont = 0;
+                                        foreach (var itemD in (Session["carrito"] as List<Item>))
+                                        {
+                                            cont = cont + itemD.monto;
+                                        }
+
+                                        <li class="total">
+                                            <a href="~/ECommerce/Carrito" class="btn btn-default hvr-hover btn-cart">VER CARRITO</a>
+                                            <span class="float-right"><strong>Total</strong>:@cont</span>
+                                        </li>
+                                    }
+
+
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+
+                    <!-- End Side Menu -->
+                </nav>
+                <!-- End Navigation -->
+            </header>
+            <!-- End Main Top -->
+
+            <div>
+                @RenderBody();
+            </div>
+            <!-- Start Instagram Feed  -->
+            <div class="instagram-box">
+                <div class="main-instagram owl-carousel owl-theme">
+                    <div class="item">
+                        <div class="ins-inner-box">
+                            <img src="~/images/img2Carrusel.jpg" alt="" />
+                            <div class="hov-in">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ins-inner-box">
+                            <img src="~/images/img4Carrusel.jpg" alt="" />
+                            <div class="hov-in">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ins-inner-box">
+                            <img src="~/images/img7Carrusel.jpg" alt="" />
+                            <div class="hov-in">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ins-inner-box">
+                            <img src="~/images/img9Carrusel.jpg" alt="" />
+                            <div class="hov-in">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ins-inner-box">
+                            <img src="~/images/img10Carrusel.jpg" alt="" />
+                            <div class="hov-in">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ins-inner-box">
+                            <img src="~/images/img2Carrusel.jpg" alt="" />
+                            <div class="hov-in">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ins-inner-box">
+                            <img src="~/images/img4Carrusel.jpg" alt="" />
+                            <div class="hov-in">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ins-inner-box">
+                            <img src="~/images/img7Carrusel.jpg" alt="" />
+                            <div class="hov-in">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ins-inner-box">
+                            <img src="~/images/img9Carrusel.jpg" alt="" />
+                            <div class="hov-in">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ins-inner-box">
+                            <img src="~/images/img10Carrusel.jpg" alt="" />
+                            <div class="hov-in">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ins-inner-box">
+                            <img src="~/images/img2Carrusel.jpg" alt="" />
+                            <div class="hov-in">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="ins-inner-box">
+                            <img src="~/images/img4Carrusel.jpg" alt="" />
+                            <div class="hov-in">
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Instagram Feed  -->
+            <!-- Start Footer  -->
+            <footer>
+                <div class="footer-main">
+                    <div class="container">
+                        <div class="row">
+                        </div>
+                        <div class="row">
+                            <div class="footer-widget">
+                                <h4>Acerca GreenPlantShop</h4>
+                                <p>Nuestra idea se origina en la problemática de la falta de variedad en el comercio de plantas ornamentales por la coyuntura actual, se vio una oportunidad de negocio en la venta de estos productos mediante entrega a delivery ya que existe una demanda de los clientes para comprar los productos sin salir de casa.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- End Footer  -->
+            <!-- Start copyright  -->
+            <div class="footer-copyright">
+                <p class="footer-company">
+                    Todos los derechos reservados. &copy; 2021 <a href="#">GreenPlantShop</a>
+                    <ul style="text-align:center">
+                        <li>Diseñado por:</li>
+                        <li>Kevin Brito Aranda</li>
+                        <li>Carlos Rimachi Silva</li>
+                        <li>Andres Roldan Loayza</li>
+                        <li>Raul Torres Tarazona</li>
+                    </ul>
+                </p>
+            </div>
+            <!-- End copyright  -->
+
+            <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+            <!-- ALL JS FILES -->
+            <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+            <script src="~/Scripts/popper.min.js"></script>
+            <script src="~/Scripts/bootstrap.min.js"></script>
+            <!-- ALL PLUGINS -->
+            <script src="~/Scripts/jquery.superslides.min.js"></script>
+            <script src="~/Scripts/bootstrap-select.js"></script>
+            <script src="~/Scripts/inewsticker.js"></script>
+            <script src="~/Scripts/bootsnav.js"></script>
+            <script src="~/Scripts/images-loded.min.js"></script>
+            <script src="~/Scripts/isotope.min.js"></script>
+            <script src="~/Scripts/owl.carousel.min.js"></script>
+            <script src="~/Scripts/baguetteBox.min.js"></script>
+            <script src="~/Scripts/form-validator.min.js"></script>
+            <script src="~/Scripts/contact-form-script.js"></script>
+            <script src="~/Scripts/custom.js"></script>
+
+        </body>
+
+    </html>
